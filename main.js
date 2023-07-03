@@ -418,6 +418,11 @@ function recurseFunctionToBlick(){
           document.querySelector('.containerForSleep').remove();
           document.querySelector('.container').classList.remove('hide');
           audio1.pause();
+
+          document.querySelector('.nameOfCoin').value = '';
+          document.querySelector('.nameOfCoin').focus();
+          document.querySelector('.priceOfCoin').value = '';
+          agreeForBlick = false;
         }, {once:true});
 
 
@@ -429,7 +434,7 @@ function recurseFunctionToBlick(){
 
 
     // це я написав тільки для першого, ще потрібно кожному дописати щоб в нього таке вискакувало
-      
+
         counterOfReminds--;
         h5_sec2_1.classList.add("hide");
         btn_delete1.classList.add("hide");
