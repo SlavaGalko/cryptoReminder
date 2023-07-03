@@ -368,14 +368,74 @@ function cryptoIntervalStart(
     }, 500);
   });
 
+let timerIdForCheckSleep;
+let agreeForBlick = true;
+
+function recurseFunctionToBlick(){
+  if (agreeForBlick == false) {
+    return;
+  }
+
+  setTimeout(()=>{
+    document.body.classList.add('red');
+    document.body.classList.remove('blue');
+  },5);
+
+  setTimeout(()=>{
+    document.body.classList.add('blue');
+    document.body.classList.remove('red');
+  },10);
+
+  setTimeout(recurseFunctionToBlick, 100);
+
+  console.log('работает рекурсия')
+
+}
+
   promise
     .then(function (data) {
       if (data.number == 1) {
         audio1.play();
-        alert(`${data.name} достиг ${data.price} цены!`);
+
+        document.querySelector('.container').classList.add('hide');
+
+
+        let newContainer = document.createElement('div');
+        newContainer.classList.add('containerForSleep');
+        newContainer.innerHTML = `
+          <p class="textForSleep">${data.name} достиг ${data.price} цены!</p>
+          <div class="wrapperForSleep">
+            <button class="buttonCheckSleep">STOP</button>
+          </div>
+
+        `;
+        document.body.append(newContainer);
+        agreeForBlick = true;
+        recurseFunctionToBlick();
+
+        document.querySelector('.buttonCheckSleep').addEventListener('click', () => {
+          clearInterval(timerIdForCheckSleep);
+          document.querySelector('.containerForSleep').remove();
+          document.querySelector('.container').classList.remove('hide');
+          audio1.pause();
+        }, {once:true});
+
+
+        setTimeout(()=>{
+          timerIdForCheckSleep = setInterval( () => {
+            audio1.play();
+          },3000);
+        },5);
+
+
+    // це я написав тільки для першого, ще потрібно кожному дописати щоб в нього таке вискакувало
+      
         counterOfReminds--;
         h5_sec2_1.classList.add("hide");
         btn_delete1.classList.add("hide");
+
+
+
       } else if (data.number == 2) {
         audio1.play();
         alert(`${data.name} достиг ${data.price} цены!`);

@@ -250,6 +250,47 @@ input {
 }
 
 
+.buttonCheckSleep {
+    width: 500px;
+    height: 500px;
+    background-color: red;
+    color:#fff;
+    font-size:50px;
+}
+
+.buttonCheckSleep:hover {
+    cursor: pointer;
+}
+
+.wrapperForSleep {
+    width: 800px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.containerForSleep {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.containerForSleep p {
+    font-size:80px;
+}
+
+.red {
+    background-color: blue;
+}
+
+.white {
+    background-color: white;
+}
+
 
 
 
