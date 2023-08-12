@@ -98,7 +98,7 @@ function cryptoSetInterval(whatRowNeed) {
         userCoinPrice,
         whatRowNeed
       );
-      //треба перевірити щоб всім я передав параметр whatRowNeed, щоб на основі цього вирішувати чи лонг чи шорт
+
     } else if (counterOfReminds == 2) {
       h5_sec2_2.classList.remove("hide");
       btn_delete2.classList.remove("hide");
@@ -387,9 +387,6 @@ function recurseFunctionToBlick(){
   },10);
 
   setTimeout(recurseFunctionToBlick, 100);
-
-  console.log('работает рекурсия')
-
 }
 
   promise
@@ -431,9 +428,6 @@ function recurseFunctionToBlick(){
             audio1.play();
           },3000);
         },5);
-
-
-    // це я написав тільки для першого, ще потрібно кожному дописати щоб в нього таке вискакувало
 
         counterOfReminds--;
         h5_sec2_1.classList.add("hide");
@@ -513,7 +507,3 @@ function recurseFunctionToBlick(){
       console.log(err);
     });
 }
-
-// Логіка вже дописана вся на те коли уведомлялки приходять і так далі. Тільки дописати потрібно наступне:
-
-//написати обработчик собития для delete кнопки біля уведомлялок. Але щоб також відкатувало всі ті проверочні змінні. і так далі щоб по новому колу без проблем запускалось воно.
